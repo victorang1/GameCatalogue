@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlatformCell" id="gTV-IL-0wX" customClass="PlatformCollectionViewCell" customModule="GameCatalogue" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-15-szE">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="mnQ-D5-bCh"/>
+                            <constraint firstAttribute="width" constant="300" id="pDD-nA-eFQ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYD-Pj-loH">
+                        <rect key="frame" x="8" y="158" width="284" height="34"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="TYD-Pj-loH" secondAttribute="trailing" constant="8" id="Dj0-D2-3Od"/>
+                <constraint firstAttribute="trailing" secondItem="GUs-15-szE" secondAttribute="trailing" id="Fr5-mX-b1C"/>
+                <constraint firstItem="GUs-15-szE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SlT-4O-9I7"/>
+                <constraint firstItem="TYD-Pj-loH" firstAttribute="top" secondItem="GUs-15-szE" secondAttribute="bottom" constant="8" id="VW9-Up-LG2"/>
+                <constraint firstItem="GUs-15-szE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YWB-dv-bzD"/>
+                <constraint firstAttribute="bottom" secondItem="TYD-Pj-loH" secondAttribute="bottom" constant="8" id="buG-Yi-T2t"/>
+                <constraint firstItem="TYD-Pj-loH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="kPL-86-ReS"/>
+            </constraints>
+            <connections>
+                <outlet property="name" destination="TYD-Pj-loH" id="kJf-KO-rsh"/>
+                <outlet property="photo" destination="GUs-15-szE" id="oRA-PF-5J3"/>
+            </connections>
+            <point key="canvasLocation" x="28.985507246376812" y="49.553571428571423"/>
+        </collectionViewCell>
+    </objects>
+</document>

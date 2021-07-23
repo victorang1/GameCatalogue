@@ -78,8 +78,8 @@
             filePath = "GameCatalogue/Controller/DetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "loadDetailData()"
             landmarkType = "7">
          </BreakpointContent>

@@ -21,7 +21,7 @@ struct GameItemResponse: Codable {
     let ratingsCount: Int
 
     enum CodingKeys: String, CodingKey {
-        case gameId = "id'"
+        case gameId = "id"
         case name, released
         case backgroundImage = "background_image"
         case rating
