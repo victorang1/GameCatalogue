@@ -15,8 +15,6 @@
 		11B8BB5926A96989008B03CD /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B8BB5826A96989008B03CD /* ViewControllerExtension.swift */; };
 		11B8BB5C26A97591008B03CD /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B8BB5B26A97591008B03CD /* DateUtil.swift */; };
 		11B8BB5E26A97737008B03CD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B8BB5D26A97737008B03CD /* DetailViewController.swift */; };
-		11B8BB6126A985A6008B03CD /* PlatformCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B8BB5F26A985A6008B03CD /* PlatformCollectionViewCell.swift */; };
-		11B8BB6226A985A6008B03CD /* PlatformCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B8BB6026A985A6008B03CD /* PlatformCollectionViewCell.xib */; };
 		11D92CAC26AA4C5800709F1C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D92CAB26AA4C5800709F1C /* AboutViewController.swift */; };
 		11E9DD7026A9521C00397CC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9DD6F26A9521C00397CC5 /* AppDelegate.swift */; };
 		11E9DD7226A9521C00397CC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9DD7126A9521C00397CC5 /* SceneDelegate.swift */; };
@@ -41,8 +39,6 @@
 		11B8BB5826A96989008B03CD /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		11B8BB5B26A97591008B03CD /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		11B8BB5D26A97737008B03CD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		11B8BB5F26A985A6008B03CD /* PlatformCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCollectionViewCell.swift; sourceTree = "<group>"; };
-		11B8BB6026A985A6008B03CD /* PlatformCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlatformCollectionViewCell.xib; sourceTree = "<group>"; };
 		11D92CAB26AA4C5800709F1C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		11E9DD6C26A9521C00397CC5 /* GameCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E9DD6F26A9521C00397CC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +135,6 @@
 				11E9DD7326A9521C00397CC5 /* ViewController.swift */,
 				11B8BB5326A96421008B03CD /* GameTableViewCell.swift */,
 				11B8BB5D26A97737008B03CD /* DetailViewController.swift */,
-				11B8BB5F26A985A6008B03CD /* PlatformCollectionViewCell.swift */,
 				11D92CAB26AA4C5800709F1C /* AboutViewController.swift */,
 			);
 			path = Controller;
@@ -169,7 +164,6 @@
 				11B8BB5426A96421008B03CD /* GameTableViewCell.xib */,
 				11E9DD7A26A9521D00397CC5 /* LaunchScreen.storyboard */,
 				11E9DD7526A9521C00397CC5 /* Main.storyboard */,
-				11B8BB6026A985A6008B03CD /* PlatformCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -268,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11B8BB6226A985A6008B03CD /* PlatformCollectionViewCell.xib in Resources */,
 				11E9DD7C26A9521D00397CC5 /* LaunchScreen.storyboard in Resources */,
 				11E9DD7926A9521D00397CC5 /* Assets.xcassets in Resources */,
 				11E9DD7726A9521C00397CC5 /* Main.storyboard in Resources */,
@@ -352,7 +345,6 @@
 				11E9DD7026A9521C00397CC5 /* AppDelegate.swift in Sources */,
 				11E9DD8E26A9566300397CC5 /* GameNetworkManager.swift in Sources */,
 				11E9DD8C26A952D900397CC5 /* GameService.swift in Sources */,
-				11B8BB6126A985A6008B03CD /* PlatformCollectionViewCell.swift in Sources */,
 				11E9DD7226A9521C00397CC5 /* SceneDelegate.swift in Sources */,
 				11E9DD9226A9572600397CC5 /* GetGamesResponse.swift in Sources */,
 				11B8BB5926A96989008B03CD /* ViewControllerExtension.swift in Sources */,

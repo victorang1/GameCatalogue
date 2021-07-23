@@ -16,19 +16,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var ratingSymbol: UILabel!
     @IBOutlet weak var gameDescription: UITextView!
-    @IBOutlet weak var platformCollectionView: UICollectionView!
     
     private let networkManager = GameNetworkManager()
     var selectedGameId: Int = -1
-    
-    private var platforms: [Platform] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        platformCollectionView.delegate = self
-        platformCollectionView.dataSource = self
-        platformCollectionView.register(PlatformCollectionViewCell.nib(), forCellWithReuseIdentifier: "PlatformCell")
 
         self.loadDetailData()
     }
@@ -45,8 +38,6 @@ class DetailViewController: UIViewController {
     }
     
     private func handleDetailResponse(responseDetail: DetailResponse) {
-        self.platforms.removeAll()
-        self.platforms.append(contentsOf: responseDetail.platforms)
         DispatchQueue.main.async {
             self.photo.kf.setImage(with: URL(string: responseDetail.backgroundImage))
             self.name.text = responseDetail.name
@@ -56,36 +47,6 @@ class DetailViewController: UIViewController {
             self.releaseDate.text = "Released: \(formattedDate)"
             self.gameDescription.text = responseDetail.detailResponseDescription.htmlToString
             self.gameDescription.textContainer.lineFragmentPadding = 0;
-            self.platformCollectionView.reloadData()
-        }
-    }
-}
-
-extension DetailViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        platformCollectionView.deselectItem(at: indexPath, animated: true)
-    }
-}
-
-extension DetailViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return platforms.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let platformCell = platformCollectionView.dequeueReusableCell(withReuseIdentifier: "PlatformCell", for: indexPath) as? PlatformCollectionViewCell {
-            let platform = platforms[indexPath.row]
-                    
-            let url = URL(string: platform.platform.imageBackground)
-            platformCell.photo.kf.setImage(with: url)
-            platformCell.name.text = platform.platform.name
-            
-            return platformCell
-        }
-        else {
-            return UICollectionViewCell()
         }
     }
 }

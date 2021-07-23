@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -90,7 +89,7 @@
                                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1EN-1e-Lgj">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1EN-1e-Lgj">
                                                 <rect key="frame" x="12" y="357" width="390" height="133"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </string>
@@ -98,45 +97,14 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Platforms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSY-QC-TxG">
-                                                <rect key="frame" x="12" y="490" width="390" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="83V-Ad-kTJ">
-                                                <rect key="frame" x="12" y="514" width="390" height="200"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="Qex-Cp-8vN"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DlA-rT-3xF">
-                                                    <size key="itemSize" width="300" height="200"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlatformCell" id="Gxg-XH-SO9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="h71-Qz-yp9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="UsV-qP-fC8" secondAttribute="trailing" id="4yw-Um-mDM"/>
                                             <constraint firstAttribute="trailing" secondItem="eLT-AQ-HNY" secondAttribute="trailing" constant="12" id="7Ek-9J-ve6"/>
-                                            <constraint firstItem="1EN-1e-Lgj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KZb-MG-bKx" secondAttribute="leading" constant="12" id="7FR-BY-n7a"/>
+                                            <constraint firstItem="1EN-1e-Lgj" firstAttribute="leading" secondItem="KZb-MG-bKx" secondAttribute="leading" constant="12" id="7FR-BY-n7a"/>
                                             <constraint firstItem="HIC-JF-OW1" firstAttribute="leading" secondItem="R8Z-Qq-hNg" secondAttribute="trailing" constant="4" id="7TN-HU-c4u"/>
                                             <constraint firstItem="yy0-Cg-r7g" firstAttribute="leading" secondItem="KZb-MG-bKx" secondAttribute="leading" constant="12" id="DiE-dj-Hsa"/>
-                                            <constraint firstItem="JSY-QC-TxG" firstAttribute="leading" secondItem="KZb-MG-bKx" secondAttribute="leading" constant="12" id="FYP-f2-fWh"/>
-                                            <constraint firstItem="83V-Ad-kTJ" firstAttribute="leading" secondItem="KZb-MG-bKx" secondAttribute="leading" constant="12" id="GgT-H9-5p4"/>
                                             <constraint firstItem="HIC-JF-OW1" firstAttribute="top" secondItem="eLT-AQ-HNY" secondAttribute="bottom" constant="12" id="LEn-bS-Aiq"/>
                                             <constraint firstAttribute="trailing" secondItem="yy0-Cg-r7g" secondAttribute="trailing" constant="12" id="MkR-kq-2lf"/>
                                             <constraint firstItem="yy0-Cg-r7g" firstAttribute="top" secondItem="UsV-qP-fC8" secondAttribute="bottom" constant="12" id="Pz5-7E-2DZ"/>
@@ -148,13 +116,9 @@
                                             <constraint firstItem="UsV-qP-fC8" firstAttribute="top" secondItem="KZb-MG-bKx" secondAttribute="top" id="fH4-am-Td7"/>
                                             <constraint firstItem="1EN-1e-Lgj" firstAttribute="top" secondItem="R8Z-Qq-hNg" secondAttribute="bottom" id="gab-IP-8PY"/>
                                             <constraint firstItem="HIC-JF-OW1" firstAttribute="centerY" secondItem="R8Z-Qq-hNg" secondAttribute="centerY" id="gik-eB-A1n"/>
-                                            <constraint firstAttribute="trailing" secondItem="83V-Ad-kTJ" secondAttribute="trailing" constant="12" id="itY-BF-8s5"/>
                                             <constraint firstItem="R8Z-Qq-hNg" firstAttribute="leading" secondItem="KZb-MG-bKx" secondAttribute="leading" constant="12" id="m9M-oN-pl8"/>
                                             <constraint firstAttribute="trailing" secondItem="HIC-JF-OW1" secondAttribute="trailing" constant="12" id="myO-pn-YzG"/>
-                                            <constraint firstAttribute="trailing" secondItem="JSY-QC-TxG" secondAttribute="trailing" constant="12" id="pMq-hc-wUQ"/>
-                                            <constraint firstItem="83V-Ad-kTJ" firstAttribute="top" secondItem="JSY-QC-TxG" secondAttribute="bottom" id="qCh-W4-Fw8"/>
                                             <constraint firstItem="yy0-Cg-r7g" firstAttribute="leading" secondItem="KZb-MG-bKx" secondAttribute="leading" constant="12" id="v2Z-Wc-ZNC"/>
-                                            <constraint firstItem="JSY-QC-TxG" firstAttribute="top" secondItem="1EN-1e-Lgj" secondAttribute="bottom" id="ycY-HW-6Nh"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -181,7 +145,6 @@
                         <outlet property="gameDescription" destination="1EN-1e-Lgj" id="mTl-C2-O8J"/>
                         <outlet property="name" destination="yy0-Cg-r7g" id="QiM-n2-aM1"/>
                         <outlet property="photo" destination="UsV-qP-fC8" id="pEM-Uc-xPd"/>
-                        <outlet property="platformCollectionView" destination="83V-Ad-kTJ" id="9mg-sI-dJd"/>
                         <outlet property="rating" destination="R8Z-Qq-hNg" id="nmP-FC-1mI"/>
                         <outlet property="ratingSymbol" destination="HIC-JF-OW1" id="Dwc-Hc-LaK"/>
                         <outlet property="releaseDate" destination="eLT-AQ-HNY" id="MOn-WO-PJ3"/>
