@@ -8,7 +8,7 @@
 import Foundation
 
 struct GameModel {
-    var id: Int
+    var gameId: Int
     var name: String
     var released: String
     var image: String

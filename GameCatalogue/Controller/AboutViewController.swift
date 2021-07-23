@@ -8,7 +8,7 @@
 import UIKit
 
 class AboutViewController: UIViewController {
-    
+
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -19,7 +19,6 @@ class AboutViewController: UIViewController {
         initImage()
         initTextData()
     }
-    
 
     private func initImage() {
         let image: UIImage = UIImage(named: "profile")!
@@ -30,7 +29,7 @@ class AboutViewController: UIViewController {
         profileImage.clipsToBounds = true
         profileImage.image = image
     }
-    
+
     private func initTextData() {
         nameLabel.text = "Victor"
         emailLabel.text = "angvictor91@gmail.com"

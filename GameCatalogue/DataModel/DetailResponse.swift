@@ -8,7 +8,7 @@
 import Foundation
 
 struct DetailResponse: Codable {
-    let id: Int
+    let gameId: Int
     let slug, name, nameOriginal, detailResponseDescription: String
     let released: String
     let tba: Bool
@@ -22,7 +22,8 @@ struct DetailResponse: Codable {
     let platforms: [Platform]
 
     enum CodingKeys: String, CodingKey {
-        case id, slug, name
+        case gameId = "id"
+        case slug, name
         case nameOriginal = "name_original"
         case detailResponseDescription = "description"
         case released, tba, updated
@@ -49,12 +50,13 @@ struct Platform: Codable {
 }
 
 struct EsrbRating: Codable {
-    let id: Int
+    let platformId: Int
     let slug, name: String
     let imageBackground: String
 
     enum CodingKeys: String, CodingKey {
-        case id, slug, name
+        case platformId = "id"
+        case slug, name
         case imageBackground = "image_background"
     }
 }

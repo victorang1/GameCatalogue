@@ -19,7 +19,7 @@ extension GameService: TargetType {
         guard let url = URL(string: "https://api.rawg.io/api/") else { fatalError() }
         return url
     }
-    
+
     public var path: String {
         switch self {
         case .games:
@@ -30,15 +30,15 @@ extension GameService: TargetType {
             return "games"
         }
     }
-    
+
     public var method: Moya.Method {
         return .get
     }
-    
+
     public var sampleData: Data {
         return Data()
     }
-    
+
     public var task: Task {
         var params: [String: Any] = [:]
         params["key"] = "4d2878b4a82a40e7a20744fc02ff66fe"
@@ -50,8 +50,8 @@ extension GameService: TargetType {
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         }
     }
-    
-    public var headers: [String : String]? {
+
+    public var headers: [String: String]? {
         return nil
     }
 }

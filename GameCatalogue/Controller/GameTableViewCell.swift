@@ -14,9 +14,7 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var releaseDate: UILabel!
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var totalRating: UILabel!
-    
     static let identifier = "GameTableViewCell"
-        
     static func nib() -> UINib {
         return UINib(nibName: GameTableViewCell.identifier, bundle: nil)
     }
