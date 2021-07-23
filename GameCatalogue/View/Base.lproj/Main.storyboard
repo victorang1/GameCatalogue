@@ -31,7 +31,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cX1-L2-Bbd">
-                        <barButtonItem key="rightBarButtonItem" title="About" id="Drr-nJ-dOJ">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" id="Drr-nJ-dOJ">
                             <connections>
                                 <action selector="didTapAbout" destination="BYZ-38-t0r" id="iel-aO-hYR"/>
                             </connections>
@@ -163,21 +163,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-Cb-oge">
-                                <rect key="frame" x="143" y="60" width="128" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-Cb-oge">
+                                <rect key="frame" x="140" y="60" width="134" height="134"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="WnZ-Ot-kcY"/>
-                                    <constraint firstAttribute="width" constant="128" id="v4l-TZ-bsn"/>
+                                    <constraint firstAttribute="height" constant="134" id="WnZ-Ot-kcY"/>
+                                    <constraint firstAttribute="width" constant="134" id="v4l-TZ-bsn"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIt-QO-lE8">
-                                <rect key="frame" x="176.5" y="200" width="61.5" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIt-QO-lE8">
+                                <rect key="frame" x="177" y="202" width="61.5" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1f-tH-Jen">
-                                <rect key="frame" x="186" y="233" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1f-tH-Jen">
+                                <rect key="frame" x="186" y="231" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

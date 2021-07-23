@@ -55,13 +55,15 @@ class ViewController: UIViewController {
     private func initSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Games"
         navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     @IBAction func didTapAbout() {
         let about = storyboard?.instantiateViewController(identifier: "about") as! AboutViewController
         
-        about.title = "About"
+        about.title = "Profile"
         
         navigationController?.pushViewController(about, animated: true)
     }
