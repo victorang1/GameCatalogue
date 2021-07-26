@@ -33,9 +33,8 @@ class DetailViewController: UIViewController {
         self.loadDetailData()
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        scrollView.contentSize = CGSize(width: 375, height: 800)
+    override func viewDidAppear(_ animated: Bool) {
+       scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+300)
     }
 
     private func loadDetailData() {
@@ -70,6 +69,12 @@ extension DetailViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         platformCollectionView.deselectItem(at: indexPath, animated: true)
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.isKind(of: UICollectionView.self) {
+             return
+          }
     }
  }
 
