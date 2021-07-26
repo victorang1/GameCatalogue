@@ -33,6 +33,11 @@ class DetailViewController: UIViewController {
         self.loadDetailData()
     }
 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        scrollView.contentSize = CGSize(width: 375, height: 800)
+    }
+
     private func loadDetailData() {
         networkManager.fetchDetailGame(gameId: String(selectedGameId)) { [weak self] result in
             switch result {

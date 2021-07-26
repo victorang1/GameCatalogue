@@ -11,6 +11,7 @@ import Kingfisher
 class ViewController: UIViewController {
 
     @IBOutlet weak var gameTableView: UITableView!
+    @IBOutlet weak var noDataLabel: UILabel!
     private let searchController = UISearchController()
 
     private let networkManager = GameNetworkManager()
@@ -26,7 +27,6 @@ class ViewController: UIViewController {
 
         initSearchController()
         self.loadGameData()
-
     }
 
     private func loadGameData() {
@@ -37,6 +37,8 @@ class ViewController: UIViewController {
                 self?.games.removeAll()
                 self?.games.append(contentsOf: newGames)
                 DispatchQueue.main.async {
+                    self?.noDataLabel.isHidden = !newGames.isEmpty
+                    self?.gameTableView.isHidden = newGames.isEmpty
                     self?.gameTableView.reloadData()
                 }
             default:
@@ -78,6 +80,8 @@ extension ViewController: UISearchResultsUpdating {
                 self?.games.removeAll()
                 self?.games.append(contentsOf: newGames)
                 DispatchQueue.main.async {
+                    self?.noDataLabel.isHidden = !newGames.isEmpty
+                    self?.gameTableView.isHidden = newGames.isEmpty
                     self?.gameTableView.reloadData()
                 }
             default:
