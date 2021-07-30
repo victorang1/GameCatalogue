@@ -25,6 +25,14 @@ class ViewController: UIViewController {
         gameTableView.dataSource = self
         gameTableView.register(GameTableViewCell.nib(), forCellReuseIdentifier: "GameCell")
 
+        let aboutImage = UIImage(systemName: "person.crop.circle.fill")!
+        let favoriteImage = UIImage(systemName: "heart.fill")!
+
+        let aboutBarButtonItem = UIBarButtonItem(image: aboutImage, style: .plain, target: self, action: #selector(didTapAbout))
+        let favoriteBarbuttonItem = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(didTapFavorite))
+
+        navigationItem.rightBarButtonItems = [aboutBarButtonItem, favoriteBarbuttonItem]
+
         initSearchController()
         self.loadGameData()
     }
@@ -33,7 +41,7 @@ class ViewController: UIViewController {
         networkManager.fetchListGames { [weak self] result in
             switch result {
             case .success(let response):
-                let newGames = self?.mapResponseToGames(gameResponses: response.results) ?? []
+                let newGames = MapperUtil.mapResponseToGameModel(gameResponses: response.results)
                 self?.games.removeAll()
                 self?.games.append(contentsOf: newGames)
                 DispatchQueue.main.async {
@@ -47,11 +55,6 @@ class ViewController: UIViewController {
         }
     }
 
-    private func mapResponseToGames(gameResponses: [GameItemResponse]) -> [GameModel] {
-            return gameResponses.map { itemResponse in
-                GameModel(gameId: itemResponse.gameId, name: itemResponse.name, released: itemResponse.released, image: itemResponse.backgroundImage, rating: itemResponse.rating, ratingsCount: itemResponse.ratingsCount)}
-    }
-
     private func initSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -60,10 +63,16 @@ class ViewController: UIViewController {
         definesPresentationContext = true
     }
 
-    @IBAction func didTapAbout() {
+    @objc func didTapAbout() {
         let about = storyboard?.instantiateViewController(identifier: "about") as! AboutViewController
         about.title = "Profile"
         navigationController?.pushViewController(about, animated: true)
+    }
+
+    @objc func didTapFavorite() {
+        let favorite = storyboard?.instantiateViewController(identifier: "favorite") as! FavoriteViewController
+        favorite.title = "Favorite"
+        navigationController?.pushViewController(favorite, animated: true)
     }
 }
 extension ViewController: UISearchResultsUpdating {
@@ -76,7 +85,7 @@ extension ViewController: UISearchResultsUpdating {
         networkManager.searchGames(query: text) { [weak self] result in
             switch result {
             case .success(let response):
-                let newGames = self?.mapResponseToGames(gameResponses: response.results) ?? []
+                let newGames = MapperUtil.mapResponseToGameModel(gameResponses: response.results)
                 self?.games.removeAll()
                 self?.games.append(contentsOf: newGames)
                 DispatchQueue.main.async {
@@ -102,6 +111,7 @@ extension ViewController: UITableViewDelegate {
 
         detail.selectedGameId = gameId
         detail.title = "Detail Information"
+        detail.detailType = DetailType.network
 
         navigationController?.pushViewController(detail, animated: true)
 
@@ -117,16 +127,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let gameCell = gameTableView.dequeueReusableCell(withIdentifier: "GameCell") as? GameTableViewCell {
             let game = games[indexPath.row]
-
-            let url = URL(string: game.image)
-            gameCell.photo.kf.setImage(with: url)
-            gameCell.name.text = game.name
-
-            let formattedDate = DateUtil.formatDate(date: game.released, resultFormat: "DD MMM YYYY")
-
-            gameCell.releaseDate.text = formattedDate
-            gameCell.rating.text = "Rating: \(game.rating)"
-            gameCell.totalRating.text = "(\(game.ratingsCount))"
+            gameCell.bind(game: game)
 
             return gameCell
         } else {

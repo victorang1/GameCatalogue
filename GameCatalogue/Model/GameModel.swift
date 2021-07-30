@@ -14,4 +14,5 @@ struct GameModel {
     var image: String
     var rating: Double
     var ratingsCount: Int
+    var description: String
 }
