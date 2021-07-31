@@ -89,6 +89,7 @@ class AppRepository {
                 game.setValue(insertedModel.name, forKey: "name")
                 game.setValue(insertedModel.backgroundImage, forKey: "photo")
                 game.setValue(insertedModel.released, forKey: "released")
+                game.setValue(insertedModel.ratingsCount, forKey: "ratingsCount")
                 game.setValue(insertedModel.detailResponseDescription, forKey: "gameDescription")
                 game.setValue(insertedModel.rating, forKey: "rating")
                 save()
