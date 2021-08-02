@@ -16,7 +16,7 @@ struct GetGamesResponse: Codable {
 struct GameItemResponse: Codable {
     let gameId: Int
     let name, released: String
-    let backgroundImage: String
+    let backgroundImage: String?
     let rating: Double
     let ratingsCount: Int
 

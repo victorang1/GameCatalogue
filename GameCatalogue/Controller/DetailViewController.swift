@@ -19,6 +19,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var gameDescription: UITextView!
     @IBOutlet weak var platformCollectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var contentView: UIView!
 
     private var detailData: DetailResponse?
     private var detailDataDB: GameModel?
@@ -39,10 +41,12 @@ class DetailViewController: UIViewController {
         platformCollectionView.dataSource = self
         platformCollectionView.register(PlatformCollectionViewCell.nib(), forCellWithReuseIdentifier: "PlatformCell")
 
+        activityIndicator.startAnimating()
         switch detailType {
         case .network:
             self.loadDetailData()
         case.favorite:
+            navigationItem.rightBarButtonItem = getRemoveFavoriteBarButtonItem()
             self.loadDetailDataFromDatabase()
         }
     }
@@ -52,9 +56,10 @@ class DetailViewController: UIViewController {
             switch result {
             case .success(let response):
                 self?.handleDetailResponse(responseDetail: response)
-            default:
+            case .failure(_):
                 self?.showToast(message: "Something went wrong")
             }
+            self?.activityIndicator.stopAnimating()
         }
     }
 
@@ -80,10 +85,13 @@ class DetailViewController: UIViewController {
         let isFavorite = repository.isFavorite(gameId: selectedGameId)
         if isFavorite {
             navigationItem.rightBarButtonItem = getRemoveBarButtonItem()
-
         } else {
             navigationItem.rightBarButtonItem = getAddBarButtonItem()
         }
+    }
+
+    private func getRemoveFavoriteBarButtonItem() -> UIBarButtonItem {
+        return UIBarButtonItem(title: "Delete", style: .done, target: self, action: #selector(removeFromFavoriteDatabase))
     }
 
     private func getRemoveBarButtonItem() -> UIBarButtonItem {
@@ -108,6 +116,8 @@ class DetailViewController: UIViewController {
                 self.gameDescription.text = game.description.htmlToString
                 self.gameDescription.textContainer.lineFragmentPadding = 0
                 self.hidePlatforms()
+                self.detailDataDB = game
+                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -128,6 +138,12 @@ class DetailViewController: UIViewController {
         repository.removeFromFavorite(gameId: detailData?.gameId ?? 0) {
             self.showToast(message: "Removed from favorite")
             self.checkBarButtonItem()
+        }
+    }
+
+    @objc func removeFromFavoriteDatabase() {
+        repository.removeFromFavorite(gameId: detailDataDB?.gameId ?? 0) {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

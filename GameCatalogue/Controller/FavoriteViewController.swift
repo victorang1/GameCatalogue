@@ -25,7 +25,9 @@ class FavoriteViewController: UIViewController {
         gameTableView.delegate = self
         gameTableView.dataSource = self
         gameTableView.register(GameTableViewCell.nib(), forCellReuseIdentifier: "GameCell")
+    }
 
+    override func viewDidAppear(_ animated: Bool) {
         loadFavoriteData()
     }
 

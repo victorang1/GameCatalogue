@@ -11,6 +11,6 @@ class MapperUtil {
 
     static func mapResponseToGameModel(gameResponses: [GameItemResponse]) -> [GameModel] {
         return gameResponses.map { itemResponse in
-            GameModel(gameId: itemResponse.gameId, name: itemResponse.name, released: itemResponse.released, image: itemResponse.backgroundImage, rating: itemResponse.rating, ratingsCount: itemResponse.ratingsCount, description: "")}
+            GameModel(gameId: itemResponse.gameId, name: itemResponse.name, released: itemResponse.released, image: itemResponse.backgroundImage ?? "", rating: itemResponse.rating, ratingsCount: itemResponse.ratingsCount, description: "")}
     }
 }

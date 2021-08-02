@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var gameTableView: UITableView!
     @IBOutlet weak var noDataLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     private let searchController = UISearchController()
 
     private let networkManager = GameNetworkManager()
@@ -38,6 +39,8 @@ class ViewController: UIViewController {
     }
 
     private func loadGameData() {
+        gameTableView.isHidden = true
+        activityIndicator.startAnimating()
         networkManager.fetchListGames { [weak self] result in
             switch result {
             case .success(let response):
@@ -52,6 +55,7 @@ class ViewController: UIViewController {
             default:
                 self?.showToast(message: "Something went wrong")
             }
+            self?.activityIndicator.stopAnimating()
         }
     }
 
@@ -82,6 +86,7 @@ extension ViewController: UISearchResultsUpdating {
             return
         }
 
+        activityIndicator.startAnimating()
         networkManager.searchGames(query: text) { [weak self] result in
             switch result {
             case .success(let response):
@@ -93,9 +98,10 @@ extension ViewController: UISearchResultsUpdating {
                     self?.gameTableView.isHidden = newGames.isEmpty
                     self?.gameTableView.reloadData()
                 }
-            default:
+            case .failure(_):
                 self?.showToast(message: "Something went wrong")
             }
+            self?.activityIndicator.stopAnimating()
         }
     }
 }
