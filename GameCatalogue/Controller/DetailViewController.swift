@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class DetailViewController: UIViewController {
 
@@ -125,6 +126,12 @@ class DetailViewController: UIViewController {
     private func hidePlatforms() {
         self.platformLabel.isHidden = true
         self.platformCollectionView.isHidden = true
+        self.platformLabel.snp.makeConstraints { constraint -> Void in
+            constraint.height.equalTo(0)
+        }
+        self.platformCollectionView.snp.makeConstraints { (constraint) -> Void in
+            constraint.height.equalTo(0)
+        }
     }
 
     @objc func addToFavorite() {
