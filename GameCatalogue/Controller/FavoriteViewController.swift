@@ -11,6 +11,7 @@ class FavoriteViewController: UIViewController {
 
     @IBOutlet weak var gameTableView: UITableView!
     @IBOutlet weak var noDataLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private lazy var repository = AppRepository(context: context)
@@ -32,6 +33,8 @@ class FavoriteViewController: UIViewController {
     }
 
     private func loadFavoriteData() {
+        activityIndicator.startAnimating()
+        self.gameTableView.isHidden = true
         repository.getFavorites { favorites in
             self.games.removeAll()
             self.games = favorites
@@ -43,6 +46,7 @@ class FavoriteViewController: UIViewController {
                 self.noDataLabel.isHidden = true
             }
             self.gameTableView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
     }
 }

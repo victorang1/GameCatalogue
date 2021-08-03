@@ -279,10 +279,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RKb-Li-t26">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RKb-Li-t26">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6Nt-jT-fyr">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLq-4h-bsg">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -293,10 +296,12 @@
                         <viewLayoutGuide key="safeArea" id="s5K-8l-StI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Nt-jT-fyr" firstAttribute="centerY" secondItem="N8U-AX-gCo" secondAttribute="centerY" id="36Z-Eq-3As"/>
                             <constraint firstItem="YLq-4h-bsg" firstAttribute="trailing" secondItem="s5K-8l-StI" secondAttribute="trailing" id="4su-IX-Vry"/>
                             <constraint firstItem="YLq-4h-bsg" firstAttribute="leading" secondItem="s5K-8l-StI" secondAttribute="leading" id="Kek-5y-CJI"/>
                             <constraint firstItem="RKb-Li-t26" firstAttribute="leading" secondItem="s5K-8l-StI" secondAttribute="leading" id="MCp-G3-Cny"/>
                             <constraint firstItem="RKb-Li-t26" firstAttribute="top" secondItem="s5K-8l-StI" secondAttribute="top" id="V8h-Jb-ZKX"/>
+                            <constraint firstItem="6Nt-jT-fyr" firstAttribute="centerX" secondItem="N8U-AX-gCo" secondAttribute="centerX" id="XQ6-Tc-IZR"/>
                             <constraint firstItem="s5K-8l-StI" firstAttribute="trailing" secondItem="RKb-Li-t26" secondAttribute="trailing" id="aSF-YU-tRb"/>
                             <constraint firstItem="YLq-4h-bsg" firstAttribute="top" secondItem="s5K-8l-StI" secondAttribute="top" id="dGS-4q-cWt"/>
                             <constraint firstItem="s5K-8l-StI" firstAttribute="bottom" secondItem="RKb-Li-t26" secondAttribute="bottom" id="lNC-mt-DIh"/>
@@ -304,6 +309,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="6Nt-jT-fyr" id="KHa-hH-goR"/>
                         <outlet property="gameTableView" destination="RKb-Li-t26" id="mc8-f5-1Fb"/>
                         <outlet property="noDataLabel" destination="YLq-4h-bsg" id="K6h-HM-ip5"/>
                     </connections>
